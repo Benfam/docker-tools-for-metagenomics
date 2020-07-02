@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-# docker-tools-for-metagenomics
-Containerized tools for metagenomics analysis, including Krona and Kaiju for streamlined bioinformatics workflows.
-=======
-# Docker Getting Started Tutorial
 
-This tutorial has been written with the intent of helping folks get up and running
+# Docker-tools-for-metagenomics tutorial
+
+Containerized tools for metagenomics analysis, including Krona and Kaiju for streamlined bioinformatics workflows. This tutorial has been written with the intent of helping folks get up and running
 with containers and is designed to work with Docker Desktop. While not going too much 
 into depth, it covers the following topics:
 
@@ -48,4 +45,4 @@ before working on your idea. While we love input, we want to keep the tutorial i
 As such, we may reject ideas for more advanced requests and don't want you to lose any work you might
 have done. So, ask first and we'll gladly hear your thoughts!
 
->>>>>>> 5bb26cc (Initial commit)
+5bb26cc (Initial commit)
