@@ -1,11 +1,6 @@
-
-<<<<<<< HEAD
-# Docker-tools-for-metagenomics tutorial
+# Docker Getting Started Tutorial
 
 Containerized tools for metagenomics analysis, including Krona and Kaiju for streamlined bioinformatics workflows. This tutorial has been written with the intent of helping folks get up and running
-=======
-This tutorial was written with the intent of helping folks get up and running
->>>>>>> ad6f32f (changed some of docs text/wording to improve readability)
 with containers and is designed to work with Docker Desktop. While not going too much 
 into depth, it covers the following topics:
 
@@ -43,15 +38,7 @@ docker-compose up
 
 If you find typos or other issues with the tutorial, feel free to create a PR and suggest fixes!
 
-<<<<<<< HEAD
 If you have ideas on how to make the tutorial better want to suggest adding new content, please open an issue first before working on your idea. While we love input, we want to keep the tutorial scoped to new-comers.
-=======
 If you have ideas on how to make the tutorial better or new content, please open an issue first before working on your idea. While we love input, we want to keep the tutorial  scoped to newcomers.
->>>>>>> 4b6b547 (Update README.md)
 As such, we may reject ideas for more advanced requests and don't want you to lose any work you might
 have done. So, ask first and we'll gladly hear your thoughts!
-HEAD
-
-5bb26cc (Initial commit)
-
-da93b17 (Use single shorthand flags, better for beginners)
