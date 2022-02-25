@@ -76,7 +76,6 @@ HEAD
 
         add the flag `--platform linux/amd64` in the previous command. So your new command should look like this: 
         
-8801e0e (fixed broken code design)
     ```bash
     docker run -d \
         --network todo-app --network-alias mysql --platform linux/amd64 \
