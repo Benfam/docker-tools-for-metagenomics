@@ -46,7 +46,7 @@ For now, we will create the network first and attach the MySQL container at star
         -v todo-mysql-data:/var/lib/mysql \
         -e MYSQL_ROOT_PASSWORD=secret \
         -e MYSQL_DATABASE=todos \
-        mysql:5.7
+        mysql:8.0
     ```
 
     If you are using PowerShell then use this command.
@@ -57,7 +57,7 @@ For now, we will create the network first and attach the MySQL container at star
         -v todo-mysql-data:/var/lib/mysql `
         -e MYSQL_ROOT_PASSWORD=secret `
         -e MYSQL_DATABASE=todos `
-        mysql:5.7
+        mysql:8.0
     ```
 
     You'll also see we specified the `--network-alias` flag. We'll come back to that in just a moment.
@@ -70,12 +70,8 @@ For now, we will create the network first and attach the MySQL container at star
     !!! info "Troubleshooting"
         If you see a `docker: no matching manifest` error, it's because you're trying to run the container in a different
         architecture than amd64, which is the only supported architecture for the mysql image at the moment. To solve this
-HEAD
         add the flag `--platform linux/amd64` in the previous command. So your new command should look like this:
 
-
-        add the flag `--platform linux/amd64` in the previous command. So your new command should look like this: 
-        
     ```bash
     docker run -d \
         --network todo-app --network-alias mysql --platform linux/amd64 \
@@ -143,7 +139,7 @@ which ships with a _lot_ of tools that are useful for troubleshooting or debuggi
     And you'll get an output like this...
 
     ```text
-    ; <<>> DiG 9.14.1 <<>> mysql
+    ; <<>> DiG 9.18.8 <<>> mysql
     ;; global options: +cmd
     ;; Got answer:
     ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 32162
@@ -181,7 +177,7 @@ The todo app supports the setting of a few environment variables to specify MySQ
 
 !!! warning Setting Connection Settings via Env Vars
     While using env vars to set connection settings is generally ok for development, it is **HIGHLY DISCOURAGED**
-    when running applications in production. Diogo Monica, the former lead of security at Docker,
+    when running applications in production. Diogo Monica, a former lead of security at Docker,
     [wrote a fantastic blog post](https://diogomonica.com/2017/03/27/why-you-shouldnt-use-env-variables-for-secret-data/)
     explaining why.
 
@@ -206,16 +202,12 @@ With all of that explained, let's start our dev-ready container!
       -e MYSQL_USER=root \
       -e MYSQL_PASSWORD=secret \
       -e MYSQL_DB=todos \
-      node:12-alpine \
+      node:18-alpine \
       sh -c "yarn install && yarn run dev"
     ```
 
     If you updated your docker file in the Bind Mount section of the tutorial use the updated command:
- HEAD
 
-
-    
-8801e0e (fixed broken code design)
     ```bash hl_lines="3 4 5 6 7"
     docker run -dp 3000:3000 \
       -w /app -v "$(pwd):/app" \
@@ -238,7 +230,7 @@ With all of that explained, let's start our dev-ready container!
       -e MYSQL_USER=root `
       -e MYSQL_PASSWORD=secret `
       -e MYSQL_DB=todos `
-      node:12-alpine `
+      node:18-alpine `
       sh -c "yarn install && yarn run dev"
     ```
 
@@ -248,9 +240,10 @@ With all of that explained, let's start our dev-ready container!
     ```plaintext hl_lines="7"
     # Previous log messages omitted
     $ nodemon src/index.js
-    [nodemon] 1.19.2
+    [nodemon] 2.0.20
     [nodemon] to restart at any time, enter `rs`
-    [nodemon] watching dir(s): *.*
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
     [nodemon] starting `node src/index.js`
     Connected to mysql db at host mysql
     Listening on port 3000
